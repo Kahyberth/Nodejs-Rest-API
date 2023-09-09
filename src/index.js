@@ -1,8 +1,5 @@
-import express from 'express';
-import employeesRoutes from './routes/employees.routes.js';
-const app = express();
-app.listen(3000);
-app.use(express.json());
-app.use("/api/",employeesRoutes);
+import app from './app.js';
+import env from './config.js';
 
-console.log("Server is running on port 3000");
+app.listen(env.PORT);
+console.log(`Server on port ${env.PORT}`);
