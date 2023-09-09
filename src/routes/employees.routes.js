@@ -3,14 +3,14 @@ import { deleteEmployeeById, getEmployeeById, postEmployee, updateEmployeeById, 
 
 const router = Router();
 
-router.get("/employees", getEmployees);
+router.get('/employees', getEmployees);
 
 router.get('/employees/:id', getEmployeeById);
 
-router.post("/employees", postEmployee);
+router.post('/employees/:id', postEmployee);
 
-router.put("/employees", updateEmployeeById);
+router.put('/employees/:id', updateEmployeeById);
 
-router.delete("/employees", deleteEmployeeById);
+router.delete('/employees/:id', deleteEmployeeById);
 
 export default router;
