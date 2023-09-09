@@ -1,7 +1,16 @@
 import { pool } from "../db.js";
 
+
+export const getEmployees = async (req, res) => {
+    const [rows] = await pool.query("SELECT * FROM employee");
+    res.send(rows);
+}   
+
 export const getEmployeeById = async (req, res) => {
-    res.send("Obteniendo un empleado");
+    const { id } = req.params;
+    const [rows] = await pool.query("SELECT * FROM employee WHERE id = ?", [id]);
+    if (rows.length <= 0) return res.status(404).json({ message: "Employee not found" });
+    res.send(rows[0]);
 }
 
 export const updateEmployeeById = async (req, res) => {

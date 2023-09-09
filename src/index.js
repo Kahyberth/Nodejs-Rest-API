@@ -3,6 +3,6 @@ import employeesRoutes from './routes/employees.routes.js';
 const app = express();
 app.listen(3000);
 app.use(express.json());
-app.use(employeesRoutes);
+app.use("/api/",employeesRoutes);
 
 console.log("Server is running on port 3000");
